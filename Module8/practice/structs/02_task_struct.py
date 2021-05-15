@@ -5,3 +5,21 @@
 #   например, lst = [1, 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 2, 4, 5, 6]
 #   2. элементы исходного списка, которые не имеют повторений(встречаются только один раз):
 #   например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
+numbers = [1, 2, 4, 5, 6, 2, 5, 2]
+
+numbers1 = set(numbers)
+print(numbers1)
+
+dict = {}
+for num in numbers:
+    if num in dict:
+        dict[num].append(1)
+    else:
+        dict[num] = [1]
+
+def only_one(num):
+    return num in dict and len(dict[num]) == 1
+
+numbers2 = list(filter(only_one, numbers))
+
+print(numbers2)
